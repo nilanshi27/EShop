@@ -1,0 +1,62 @@
+{%extends 'base.html'%}
+
+
+{% block content%}
+
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+        <h3 class="alert alert-light border rounded ">create an account</h3>
+            <form action="/signup" method="POST">
+
+            {% csrf_token %}
+
+            <!-- shows a error message-->
+            {% if error %}
+          <div class="alert alert-danger" role="alert">
+               {{error}}
+             </div>
+{% endif %}
+            <!--first name-->
+            <div class="form-group ">
+             <label for="">First Name</label>
+                <!--value is to store values in form-->
+             <input type="text" value="{{values.first_name}}" name="firstname" id="" class="form-control form-control-sm" >
+
+             <!--Last Name-->
+            <div class="form-group ">
+             <label for="">Last Name</label>
+             <input type="text" value="{{values.last_name}}" name="lastname" id="" class="form-control form-control-sm">
+
+            <!--email-->
+            <div class="form-group">
+             <label for="">Email</label>
+             <input required type="email" value="{{values.email}}" name="email" id="" class="form-control form-control-sm" placeholder="example@gmail.com">
+
+             <!--password-->
+            <div class="form-group">
+             <label for="">password</label>
+             <input type="password" name="password" id="" class="form-control form-control-sm" placeholder="*****">
+             
+             
+             <!--phoneno-->
+            <div class="form-group">
+             <label for="">Phone No.</label>
+             <input type="text" name="phone" value="{{values.phone}}" d="" class="form-control form-control-sm">
+             
+            <!--button-->
+            <div class="form-group">
+            <button type="submit" class="btn btn-primary" >  create an account</button>
+            </div>
+
+             
+           </div>
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+{%endblock%}
